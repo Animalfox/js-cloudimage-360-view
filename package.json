@@ -23,12 +23,12 @@
   ],
   "scripts": {
     "start-demo": "webpack-dev-server --mode development --config config/webpack-demo.config.js",
-    "clean:build": "rm -rf build",
+    "clean:build": "del /S /Q build",
     "build:bundle": "npm run clean:build && webpack --mode production --config config/webpack-build.config.js",
     "deploy:bundle": "npm run build:bundle && node bin/deploy-bundle",
-    "clean:dist": "rm -rf dist",
+    "clean:dist": "del /S /Q dist",
     "dist": "npm run clean:dist && babel src -d dist --copy-files",
-    "clean:demo": "rm -rf examples/dist",
+    "clean:demo": "del /S /Q examples/dist",
     "build:demo": "npm run clean:demo && webpack --mode production  --config config/webpack-demo.config.js",
     "deploy:demo": "gh-pages -d examples/dist",
     "publish:demo": "npm run build:demo && npm run deploy:demo"
